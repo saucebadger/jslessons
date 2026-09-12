@@ -15,6 +15,31 @@
       function getRandomNumber () {
     return Math.random()
  }
-  console.log(getComputerChoice());
+  //Removed old console.log from this line so it would get called twice
+  function getHumanChoice () {
+    let userchoice = window.prompt("Rock, Paper or Scissors?")
     
+    return userchoice
+  }
+  console.log(getHumanChoice(),getComputerChoice())  
+
+  let humanScore = 0
+  let computerScore = 0
+
+  function playRound (humanChoice,computerChoice) {
+   
+
+    if (humanChoice === computerChoice) {
+return "OHH Noo , Its a Draw!"
+    }
+    else if ((humanChoice === "rock" && computerChoice === "scissors")|| 
+    (humanChoice === "scissors" && computerChoice === "paper")|| 
+(humanChoice === "paper" && computerChoice === "rock")) {
+        return "Congrats, you just beat a computer"
+    }
+    else {
+       return "You Loser!"
+    }
+  }
+  console.log(playRound(getHumanChoice(),getComputerChoice()))
 </script>
