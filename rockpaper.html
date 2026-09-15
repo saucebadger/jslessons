@@ -19,16 +19,18 @@
   function getHumanChoice () {
     let userchoice = window.prompt("Rock, Paper or Scissors?")
     
-    return userchoice
+    return userchoice.toLowerCase()
   }
-  console.log(getHumanChoice(),getComputerChoice())  
+ //removed old console.log so it wont get called twice 
 
   let humanScore = 0
   let computerScore = 0
 
+   let humanChoice = getHumanChoice()
+   let computerChoice = getComputerChoice()
+
   function playRound (humanChoice,computerChoice) {
    
-
     if (humanChoice === computerChoice) {
 return "OHH Noo , Its a Draw!"
     }
@@ -40,6 +42,21 @@ return "OHH Noo , Its a Draw!"
     else {
        return "You Loser!"
     }
-  }
-  console.log(playRound(getHumanChoice(),getComputerChoice()))
+}
+    function scoreTracker () {
+        let roundResult = playRound (humanChoice,computerChoice)
+        if (roundResult === "Congrats, you just beat a computer") {
+             humanScore = humanScore + 1
+        }
+        else if (roundResult === "You Loser!") {
+             computerScore = computerScore + 1
+        }
+    }
+
+  console.log(humanChoice, computerChoice)
+  console.log(playRound(humanChoice,computerChoice))
+  scoreTracker()
+  console.log("Your Score "+humanScore,"Skynet's Score "+computerScore)
+  
+
 </script>
