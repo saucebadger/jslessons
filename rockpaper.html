@@ -22,14 +22,15 @@
     return userchoice.toLowerCase()
   }
  //removed old console.log so it wont get called twice 
-
-  let humanScore = 0
+//begining of code for 1 round version
+  
+  //end of code for 1 round version
+  function playGame () {
+      let humanScore = 0
   let computerScore = 0
 
-   let humanChoice = getHumanChoice()
-   let computerChoice = getComputerChoice()
-
-  function playRound (humanChoice,computerChoice) {
+  
+    function playRound (humanChoice,computerChoice) {
    
     if (humanChoice === computerChoice) {
 return "OHH Noo , Its a Draw!"
@@ -42,9 +43,10 @@ return "OHH Noo , Its a Draw!"
     else {
        return "You Loser!"
     }
-}
-    function scoreTracker () {
-        let roundResult = playRound (humanChoice,computerChoice)
+    }
+
+    function scoreTracker (a,b) {
+        let roundResult = playRound (a,b)
         if (roundResult === "Congrats, you just beat a computer") {
              humanScore = humanScore + 1
         }
@@ -52,11 +54,23 @@ return "OHH Noo , Its a Draw!"
              computerScore = computerScore + 1
         }
     }
+    for (let round = 1; round <= 5; round = round + 1){
+    let roundHumanChoice = getHumanChoice()
+    let roundComputerChoice = getComputerChoice()
+    scoreTracker(roundHumanChoice,roundComputerChoice)
+    }
+    console.log(humanScore,computerScore);
+    if (humanScore > computerScore) {
+        return "Congrats, you just beat a computer "
+    }
+    else if (humanScore === computerScore) {
+        return "OHH Noo , Its a Draw!"
+    }
+    else {
+        return "You Loser "
+    }
 
-  console.log(humanChoice, computerChoice)
-  console.log(playRound(humanChoice,computerChoice))
-  scoreTracker()
-  console.log("Your Score "+humanScore,"Skynet's Score "+computerScore)
+    }
   
-
+  console.log(playGame());
 </script>
