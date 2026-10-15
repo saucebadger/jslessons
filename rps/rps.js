@@ -26,8 +26,11 @@ let computerScore = 0
  })
  
  function updateScore (humanChoice,computerChoice) {
+       if (humanScore === 5 || computerScore === 5) {
+        return
+    }
+
    if (humanChoice === computerChoice) {
-return
     }
     else if ((humanChoice === "rock" && computerChoice === "scissors")|| 
     (humanChoice === "scissors" && computerChoice === "paper")|| 
@@ -37,9 +40,28 @@ return
     else {
        computerScore = computerScore + 1
     }
+    displayResults()
     }
  
- 
+ function displayResults() {
+    const humanStars = '<i class="nes-icon is-large star"></i>'.repeat(humanScore)
+    const computerStars = '<i class="nes-icon is-large star"></i>'.repeat(computerScore)
+
+    let finalMessage = ""
+
+    if (humanScore === 5) {
+        finalMessage = "Congrats"
+    }
+    else if (computerScore === 5) {
+        finalMessage = "You a Loser"
+    }
+
+    results.innerHTML = `
+        <p>You: ${humanStars}</p>
+        <p>Computer: ${computerStars}</p>
+        <p>${finalMessage}</p>
+    `
+}
  
  
  

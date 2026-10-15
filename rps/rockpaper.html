@@ -5,14 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Super RPS64</title>
   <script src="rps.js" defer></script>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="rps.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <button id="rock">Rock</button>
-<button id="paper">Paper</button>
-<button id="scissors">Scissors</button>
+  <body>
 
-<div id="results"></div>
+  <main class="game-wrapper">
+
+    <section class="nes-container with-title is-centered">
+      <p class="title">SUPER RPS64</p>
+
+      <p class="weapon-title">Choose your weapon!</p>
+
+      <div class="button-area">
+        <button id="rock" class="nes-btn is-primary">ROCK</button>
+        <button id="paper" class="nes-btn is-success">PAPER</button>
+        <button id="scissors" class="nes-btn is-error">SCISSORS</button>
+      </div>
+    </section>
+
+
+    <section class="nes-container with-title is-dark results-box">
+      <p class="title">SCOREBOARD</p>
+
+      <div id="results">
+        You: 0 | Computer: 0
+      </div>
+    </section>
+
+  </main>
+
 
 </body>
 
